@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="list" class="Question5.Complex" name="complexBean">
+        <property name="list">
+            <list>
+                <value>L1</value>
+                <value>L2</value>
+            </list>
+        </property>
+
+        <property name="set">
+            <list>
+                <value>S1</value>
+                <value>S2</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="1" value="vishakha"/>
+                <entry key="2" value="shashank"/>
+            </map>
+        </property>
+    </bean>
+
+
+
+
+
+
+
+
+</beans>
