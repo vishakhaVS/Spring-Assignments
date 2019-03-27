@@ -1,3 +1,4 @@
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -6,6 +7,12 @@ import java.sql.*;
 import java.util.Map;
 
 public class Main {
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    UserRepo userRepo;
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-Config.xml");
         UserService userService = ctx.getBean(UserService.class);
@@ -45,10 +52,8 @@ public class Main {
         userdao.sessionFactoryDemo();
 
         System.out.print("====Adding 2 records===== : ");
+        Main.userRepo.insert();
 
-
-
-        System.out.print("");
 
         //ReadOnly
         Main.userRepo.insert2();
@@ -61,7 +66,7 @@ public class Main {
     }
 
 
-    }
+}
 
 
 }
