@@ -1,12 +1,9 @@
-package com.ttn.service;
-
-import com.ttn.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 import java.sql.*;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
@@ -46,6 +43,22 @@ public class Main {
         System.out.println("=====HQL QUERY========");
         System.out.println("Count of users:");
         userdao.sessionFactoryDemo();
+
+        System.out.print("====Adding 2 records===== : ");
+
+
+
+        System.out.print("");
+
+        //ReadOnly
+        Main.userRepo.insert2();
+        //Timeout
+        Main.userRepo.insert3();
+        //RollbackFor
+        Main.userRepo.insert4();
+        //NoRollbackFor
+        Main.userRepo.insert5();
+    }
 
 
     }
