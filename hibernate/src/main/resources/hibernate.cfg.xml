@@ -22,7 +22,7 @@
         <property name="hbm2ddl.auto">create</property>
 
         <!--Annotated entity class-->
-      <!--  <mapping class="com.hibernate.demo.Person"/>-->
+        <mapping class="entity.Author"/>
 
     </session-factory>
 </hibernate-configuration>

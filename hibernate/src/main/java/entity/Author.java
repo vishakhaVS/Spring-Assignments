@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Author {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     int id;
     String firstName;
     String lastName;
@@ -38,4 +38,13 @@ public class Author {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
