@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>q9</title>
+</head>
+<body>
+
+<label>UserEnum: </label>
+<select>
+    <option th:value="None">Select One</option>
+    <option th:each="userenum : ${T(com.ttn.thymeleafdemo.entity.UserEnum).values()}"
+            th:value="${userenum.getMessage()}"
+            th:text="${userenum.getMessage()}">
+
+    </option>
+</select>
+</body>
+</html>

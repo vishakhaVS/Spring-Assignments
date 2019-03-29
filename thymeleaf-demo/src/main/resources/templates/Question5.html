@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Question5</title>
+</head>
+<body>
+
+<header th:replace="Question6 :: header"></header>
+
+<div th:each="user:${user}">
+    <span th:text="${user.isAdmin}?'Hello Admin':'Hello User'"></span>
+    <span th:text="${user.uname}"></span>
+</div>
+<footer th:replace="Question6 :: footer"></footer>
+</body>
+</html>

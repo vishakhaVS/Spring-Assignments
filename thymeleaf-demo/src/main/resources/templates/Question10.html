@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Question10</title>
+</head>
+<body>
+
+<form method="post" id="register" th:object="${employee}">
+   Name <input th:field="*{name}" type="text"  required/>
+   Age <input th:field="*{age}" type="number"  required/>
+
+    <input type="submit" th:value="submit"/>
+</form>
+<img th:src="@{/loader.gif}" id="loader"/>
+<div id="data"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script th:src="@{/q10.js}"></script>
+</body>
+</html>

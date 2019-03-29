@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Q8</title>
+</head>
+<body>
+<table border="1">
+    <tr th:each="user,itr:${user}" th:style="${itr.odd}?'color:red':''">
+        <td th:text="${user.uname}">
+        </td>
+        <td th:text="${user.location}">
+        </td>
+        <td th:text="${user.isAdmin}">
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
