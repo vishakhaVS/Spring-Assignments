@@ -14,8 +14,9 @@ public class User {
     String username;
     String password;
     String name;
-    String dob;
     int age;
+    String dob;
+
 
     public int getId() {
         return id;
@@ -29,14 +30,6 @@ public class User {
     int id;
 
     public User() {
-    }
-
-    public User(String username, String password, String name, String dob, int age) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.dob = dob;
-        this.age = age;
     }
 
     public String getUsername() {
@@ -63,14 +56,6 @@ public class User {
         this.name = name;
     }
 
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
     public int getAge() {
         return age;
     }
@@ -79,16 +64,36 @@ public class User {
         this.age = age;
     }
 
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public User(String username, String password, String name, int age, String dob, int id) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.age = age;
+        this.dob = dob;
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", dob=" + dob +
                 ", age=" + age +
+                ", dob='" + dob + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
+
+
 
 

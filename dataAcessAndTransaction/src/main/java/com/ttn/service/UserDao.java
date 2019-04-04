@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 
 @Repository
+public
 class UserDao {
 
     @Autowired
@@ -18,14 +19,14 @@ class UserDao {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    void userCount() {
+    public void userCount() {
         String sql = "SELECT COUNT(*) FROM user";
         System.out.println(jdbcTemplate.queryForObject(sql, Integer.class));
     }
 
-    void getUserName() {
+    public void getUserName() {
         String sql = "SELECT NAME FROM user WHERE username = ?";
-        System.out.println(jdbcTemplate.queryForObject(sql, new Object[]{"vishakha@123"}, String.class));
+        System.out.println(jdbcTemplate.queryForObject(sql, new Object[]{"vishakha@1234"}, String.class));
     }
 
     void insertUser(User user) {
@@ -34,27 +35,27 @@ class UserDao {
                 user.getUsername(), user.getPassword(), user.getName(), user.getDob(), user.getAge()});
     }
 
-    void queryForMapDemo() {
+    public void queryForMapDemo() {
         String sql = "SELECT * FROM user WHERE username = ?";
-        System.out.println(jdbcTemplate.queryForMap(sql, new Object[]{"vishakha@123"}));
+        System.out.println(jdbcTemplate.queryForMap(sql, new Object[]{"vishakha@1234"}));
     }
 
-    void queryForListDemo() {
+    public void queryForListDemo() {
         String sql = "SELECT * FROM user";
         System.out.println(jdbcTemplate.queryForList(sql));
     }
 
-    void getUserRow() {
+    public void getUserRow() {
         String sql = "SELECT * FROM user WHERE username = ?";
 
-        System.out.println(jdbcTemplate.queryForObject(sql, new Object[]{"vishakha@123"}, new UserMapper()));
+        System.out.println(jdbcTemplate.queryForObject(sql, new Object[]{"vishakha@1234"}, new UserMapper()));
     }
 
     @Autowired
     SessionFactory sessionFactoryBean;
 
-    void sessionFactoryDemo() {
-        String sql = "SELECT COUNT(u) FROM User u";
+    public void sessionFactoryDemo() {
+        String sql = "SELECT COUNT(*) from User";
         Query query = sessionFactoryBean.openSession().createQuery(sql);
         System.out.println(query.uniqueResult());
     }

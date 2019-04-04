@@ -23,10 +23,8 @@ public class User1Repo {
     //@Transactional(propagation = Propagation.MANDATORY)
     //@Transactional(propagation = Propagation.SUPPORTS)
     //@Transactional(propagation = Propagation.NOT_SUPPORTED)
-
-    public void printMessage() {
-
-        String sql = "INSERT INTO user (username,password,name,dob,age) VALUES(?,?,?,?,?)";
-        jdbcTemplate.update(sql, "Karan", "Karanas12", "Karan", new Date(), 23);
+    public void insert() {
+        String sql = "INSERT INTO user (username,password,name,age,dob)VALUES(?,?,?,?,?)";
+        jdbcTemplate.update(sql, "spring5", "spring5", "Tamanna", 23, new Date());
     }
 }

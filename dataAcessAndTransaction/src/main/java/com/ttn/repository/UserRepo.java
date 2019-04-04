@@ -1,12 +1,13 @@
 package com.ttn.repository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
+@Repository
 public class UserRepo {
 
     @Autowired
@@ -19,15 +20,16 @@ public class UserRepo {
     public void insert() {
         String sql = "INSERT INTO user (username,password,name,age,dob)VALUES(?,?,?,?,?)";
         System.out.println("No. of rows Added : " + jdbcTemplate
-                .update(sql, "harsh", "harsh101", "harsh", 20, new Date()));
-        user1Repo.printMessage();
+                .update(sql, "spring5", "spring5", "Harsh", 20,"1990-01-16"));
+        user1Repo.insert();
     }
-    @Transactional(readOnly = true)
+
+    @Transactional
     public void insert2() {
         insert();
     }
 
-    @Transactional(timeout = 2)
+    @Transactional(timeout = 10)
     public void insert3() {
         try {
             Thread.sleep(3000L);
@@ -49,5 +51,3 @@ public class UserRepo {
         throw new ArithmeticException();
     }
 }
-
-

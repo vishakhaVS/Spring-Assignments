@@ -33,7 +33,7 @@ public class UserService {
     User1Repo user1;
 
 
-    void printUserNamesDataSource() throws SQLException {
+    public void printUserNamesDataSource() throws SQLException {
         Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user");
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -46,7 +46,7 @@ public class UserService {
     @Qualifier("dbcp2datasource")
     DataSource dbcp2datasource;
 
-    void printUserNamesdbcp2datasource() throws SQLException {
+    public void printUserNamesdbcp2datasource() throws SQLException {
         Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user");
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -59,7 +59,7 @@ public class UserService {
     @Qualifier("dataSourceSingleton")
     DataSource dataSourceSingleton;
 
-    void printUserNamesdataSourceSingleton() throws SQLException {
+    public void printUserNamesdataSourceSingleton() throws SQLException {
         Connection connection = dataSource.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user");
         ResultSet resultSet = preparedStatement.executeQuery();
