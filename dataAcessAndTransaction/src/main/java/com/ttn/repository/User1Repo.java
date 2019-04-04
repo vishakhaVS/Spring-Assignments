@@ -25,6 +25,6 @@ public class User1Repo {
     //@Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void insert() {
         String sql = "INSERT INTO user (username,password,name,age,dob)VALUES(?,?,?,?,?)";
-        jdbcTemplate.update(sql, "spring5", "spring5", "Tamanna", 23, new Date());
+        jdbcTemplate.update(sql, "tamanna", "fana123", "Tamanna", 23, new Date());
     }
 }

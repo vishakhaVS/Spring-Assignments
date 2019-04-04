@@ -1,8 +1,7 @@
-package com.ttn;
-
+import com.ttn.repository.User1Repo;
 import com.ttn.repository.UserRepo;
-import com.ttn.service.UserDao;
 
+import com.ttn.service.UserDao;
 import com.ttn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -11,19 +10,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.*;
 
-
 public class Main {
-    @Autowired
-    UserService userService;
-
-    @Autowired
-    UserRepo userRepo;
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-Config.xml");
         UserService userService = ctx.getBean(UserService.class);
         UserDao userdao = ctx.getBean(UserDao.class);
+        UserRepo userrepo=ctx.getBean(UserRepo.class);
         //UserMapper usermapper = ctx.getBean(UserMapper.class);
+
 
         //Question3,4
         System.out.println("=======By DATASOURCE=======");
@@ -65,7 +60,26 @@ public class Main {
         System.out.println("Count of users:");
         userdao.sessionFactoryDemo();
 
-    }}
+        //Question12
+        System.out.print("Adding 2 user : ");
+        userrepo.insert();
+
+        //Question13
+        System.out.print("Demonstrating read-only," +
+                "timeout," +
+                "rollback-for," +
+                "no-rollback-for.");
+        //ReadOnly
+        userrepo.insert2();
+        //Timeout
+        userrepo.insert3();
+        //RollbackFor
+        userrepo.insert4();
+        //NoRollbackFor
+        userrepo.insert5();
+    }
+
+    }
 
 
 
