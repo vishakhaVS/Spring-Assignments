@@ -5,9 +5,9 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Address {
-    String streetNumber;
-    String location;
-    String State;
+    private String streetNumber;
+    private String location;
+    private String State;
 
     public String getStreetNumber() {
         return streetNumber;

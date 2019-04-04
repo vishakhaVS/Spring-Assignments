@@ -3,6 +3,8 @@ package entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 @Entity
@@ -10,35 +12,9 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-
+//Question17
     private String bookName;
-
-//    //  Exercise16.2
-//    @ManyToOne
-//    private Author author;
-//
-//    public Author getAuthor() {
-//        return author;
-//    }
-//
-//    public void setAuthor(Author author) {
-//        this.author = author;
-//    }
-//
-//    public Book(String bookName, Author author) {
-//        this.bookName = bookName;
-//        this.author = author;
-//    }
-//    @Override
-//    public String toString() {
-//        return "Book{" +
-//                "id=" + id +
-//                ", bookName='" + bookName + '\'' +
-//                ", author=" + author +
-//                '}';
-//    }
-
-    //  Exercise17
+/*
     @ManyToMany(mappedBy = "books")
     private List<Author> authors = new ArrayList<>();
 
@@ -48,16 +24,7 @@ public class Book {
 
     public void setAuthors(List<Author> authors) {
         this.authors = authors;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", bookName='" + bookName + '\'' +
-                ", authors=" + authors +
-                '}';
-    }
+    }*/
 
     public Integer getId() {
         return id;
@@ -82,4 +49,44 @@ public class Book {
     public Book() {
     }
 
+    //Question16
+//     @JoinTable
+//    @OneToMany(cascade = CascadeType.PERSIST)
+
+//bidirectional
+    @OneToMany(mappedBy = "book")
+//    @JoinTable(joinColumns = @JoinColumn(name="author_id")
+//            ,inverseJoinColumns = @JoinColumn(name = "book_id"))
+    private
+    Collection<Author> author= new HashSet<Author>();
+
+    public Collection<Author> getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Collection<Author> author) {
+        this.author = author;
+    }
+    /*   public Book(String bookName, List<Author> authors) {
+        this.bookName = bookName;
+        this.authors = authors;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", authors=" + authors +
+                '}';
+    }*/
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", author=" + author +
+                '}';
+    }
 }
